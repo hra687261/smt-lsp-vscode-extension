@@ -49,7 +49,10 @@
         "scopeName": "source.smt",
         "path": "./smt.tmLanguage"
       }
-    ]
+    ],
+    "comments": {
+      "lineComment": ";"
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

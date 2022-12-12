@@ -22,6 +22,14 @@ Checkout [this page](https://opam.ocaml.org/doc/Install.html) to see how to inst
 
 for more information checkout [Dolmen's doc](https://github.com/Gbury/dolmen/blob/master/doc/lsp.md)
 
+# Installtion:
+
+From source:
+```
+vsce package
+code --install-extension smt-lsp-X.X.X.vsix
+```
+
 # TODO
 - A way to extend the syntax highlighting and typechecking grammars from the user's side (through extension settings and preludes to the server maybe?).
 - Syntax highlighting for the latest version of the SMT-LIB standard. (only version 2.5 is supported for now)

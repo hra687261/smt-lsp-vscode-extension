@@ -1,0 +1,6 @@
+node_modules
+.vscode
+extension.js.map
+extension.js
+*.vsix
+test
