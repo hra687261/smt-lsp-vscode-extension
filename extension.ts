@@ -1,22 +1,19 @@
-import { ExtensionContext/* , workspace */ } from 'vscode';
-import { LanguageClient, Executable } from 'vscode-languageclient/node';
+import {
+  ExtensionContext,
+  workspace
+} from 'vscode';
+import {
+  LanguageClient,
+  Executable,
+  DidChangeConfigurationNotification
+} from 'vscode-languageclient/node';
 
 let client: LanguageClient;
 
 export function activate(_context: ExtensionContext) {
 
-  /*
-  const preludes = workspace.getConfiguration("smt-lsp").get("preludes") as string[]
-  let args: string[] = []
-  preludes.map((x) => x.trim()).filter((x) => x !== '').forEach((element) => {
-    args.push("--prelude")
-    args.push(element)
-  })
-  */
-
   const run: Executable = {
-    command: 'dolmenls',
-    /* args */
+    command: 'dolmenls'
   };
 
   client = new LanguageClient(
@@ -26,7 +23,20 @@ export function activate(_context: ExtensionContext) {
     { documentSelector: [{ scheme: 'file', language: 'smt' }] },
   );
 
-  client.start()
+  client.start();
+  client.sendNotification(
+    DidChangeConfigurationNotification.type,
+    { settings: workspace.getConfiguration("smt-lsp") }
+  );
+
+  workspace.onDidChangeConfiguration(e => {
+    if (e.affectsConfiguration("smt-lsp.preludes")) {
+      client.sendNotification(
+        DidChangeConfigurationNotification.type,
+        { settings: workspace.getConfiguration("smt-lsp") }
+      );
+    }
+  })
 }
 
 export function deactivate(): Thenable<void> | undefined {
