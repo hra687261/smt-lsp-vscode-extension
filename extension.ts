@@ -1,11 +1,11 @@
 import {
   ExtensionContext,
-  workspace
+  //workspace
 } from 'vscode';
 import {
   LanguageClient,
   Executable,
-  DidChangeConfigurationNotification
+  //DidChangeConfigurationNotification
 } from 'vscode-languageclient/node';
 
 let client: LanguageClient;
@@ -24,19 +24,19 @@ export function activate(_context: ExtensionContext) {
   );
 
   client.start();
-  client.sendNotification(
-    DidChangeConfigurationNotification.type,
-    { settings: workspace.getConfiguration("smt-lsp") }
-  );
+  // client.sendNotification(
+  //   DidChangeConfigurationNotification.type,
+  //   { settings: workspace.getConfiguration("smt-lsp") }
+  // );
 
-  workspace.onDidChangeConfiguration(e => {
-    if (e.affectsConfiguration("smt-lsp.preludes")) {
-      client.sendNotification(
-        DidChangeConfigurationNotification.type,
-        { settings: workspace.getConfiguration("smt-lsp") }
-      );
-    }
-  })
+  // workspace.onDidChangeConfiguration(e => {
+  //   if (e.affectsConfiguration("smt-lsp.preludes")) {
+  //     client.sendNotification(
+  //       DidChangeConfigurationNotification.type,
+  //       { settings: workspace.getConfiguration("smt-lsp") }
+  //     );
+  //   }
+  // })
 }
 
 export function deactivate(): Thenable<void> | undefined {
