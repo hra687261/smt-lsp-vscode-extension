@@ -2,7 +2,7 @@
   "name": "smt-lsp",
   "displayName": "SMT LSP",
   "description": "A Language Server Protocol for the SMT-LIB Standard",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "publisher": "hra687261",
   "license": "ISC",
   "repository": {
@@ -63,10 +63,10 @@
     "vscode-languageclient": "^8.0.2"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.0",
+    "@types/mocha": "^10.0.1",
     "@types/node": "18.11.18",
     "@types/vscode": "^1.74.0",
-    "eslint": "^6.1.3",
-    "typescript": "4.9.3"
+    "eslint": "^8.31.0",
+    "typescript": "4.9.4"
   }
 }
