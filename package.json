@@ -7,7 +7,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hra687261/vscode-smt-lsp"
+    "url": "https://github.com/hra687261/smt-lsp-vscode-extension"
   },
   "categories": [
     "Programming Languages"
@@ -26,7 +26,7 @@
         "smt-lsp.preludes": {
           "type": "array",
           "default": [],
-          "description": "Prelude files that the language server processes first."
+          "description": "Prelude files that the language server processes before the files that are open. The files are processed in the order in which they appear."
         }
       }
     },

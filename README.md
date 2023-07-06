@@ -2,7 +2,7 @@
 
 A Language Server Protocol for the SMT-LIB Standard.
 
-The LSP used by this extension is [dolmenls](https://github.com/Gbury/dolmen).
+The LSP used by this extension is [Dolmen's LSP (dolmenls)](https://github.com/Gbury/dolmen).
 
 The syntax highlighting is a copy of [SMT.tmbundle](https://github.com/SRI-CSL/SMT.tmbundle).
 
