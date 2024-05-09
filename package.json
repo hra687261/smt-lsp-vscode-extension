@@ -2,7 +2,7 @@
   "name": "smt-lsp",
   "displayName": "SMT LSP",
   "description": "A Language Server Protocol for the SMT-LIB Standard",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "hra687261",
   "license": "ISC",
   "repository": {
@@ -11,9 +11,6 @@
   },
   "categories": [
     "Programming Languages"
-  ],
-  "activationEvents": [
-    "onLanguage:smt"
   ],
   "engines": {
     "vscode": "^1.86.0"
@@ -25,8 +22,14 @@
       "properties": {
         "smt-lsp.preludes": {
           "type": "array",
+          "items": "string",
           "default": [],
           "description": "Prelude files that the language server processes before the files that are open. The files are processed in the order in which they appear."
+        },
+        "smt-lsp.binary": {
+          "type": "string",
+          "default": null,
+          "description": "Path to the dolmenls (Dolmen language server) binary (likely under \"~/.opam/{opam-switch}/bin/dolmenls\" or equivalent)"
         }
       }
     },
@@ -40,7 +43,8 @@
           ".smt",
           ".smt2",
           ".psmt2"
-        ]
+        ],
+        "configuration": "./language-configuration.json"
       }
     ],
     "grammars": [
