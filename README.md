@@ -34,6 +34,12 @@ vsce package
 code --install-extension smt-lsp-X.X.X.vsix
 ```
 
+# Configuration
+
+The extension has the following settings:
+- "smt-lsp.preludes": a list of paths to prelude files that will be parsed and typed before parsing and typing the files that are opened when using the extension.
+- "smt-lsp.binary": a path to the `dolmenls` binary. By default, the extension runs the command `dolmenls`, but a path to the binary can be provided and will be used if provided.
+
 # TODO
 - Syntax highlighting for the latest version of the SMT-LIB standard. (only version 2.5 is supported for now)
 - Syntax highlighting for the other languages supported by [Dolmen](https://github.com/Gbury/dolmen). (some day)
