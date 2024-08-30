@@ -1,7 +1,7 @@
 {
   "name": "smt-lsp",
   "displayName": "SMT LSP",
-  "description": "A Language Server Protocol for the SMT-LIB Standard",
+  "description": "Type checking and syntax highlighting the SMT-LIB Standard",
   "version": "1.1.0",
   "publisher": "hra687261",
   "license": "ISC",
