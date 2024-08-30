@@ -1,6 +1,6 @@
 # SMT-LSP
 
-A Language Server Protocol for the SMT-LIB Standard.
+Type checking and syntax highlighting the SMT-LIB Standard.
 
 The LSP used by this extension is [Dolmen's language server (dolmenls)](https://github.com/Gbury/dolmen).
 
@@ -8,19 +8,26 @@ The syntax highlighting is a copy of [SMT.tmbundle](https://github.com/SRI-CSL/S
 
 # Dependencies
 
-To use the extension you need to install [dolmenls](https://github.com/Gbury/dolmen) which can be installed with [opam](https://opam.ocaml.org/).
+To use the extension you need to install [dolmenls](https://github.com/Gbury/dolmen):
 
-Checkout [opam's website](https://opam.ocaml.org/doc/Install.html) to see how to install opam.
+- With [opam](https://opam.ocaml.org/) (Checkout [opam's website](https://opam.ocaml.org/doc/Install.html) to see how to install it):
 
-- To install the latest release of `dolmenls` run:
+  - To install the latest release of `dolmenls` run:
 
-  ```opam install dolmen_lsp```
+    ```opam install dolmen_lsp```
 
-- To install the dev version run:
+  - To install the dev version run:
 
-  ```opam pin add https://github.com/Gbury/dolmen.git```
+    ```opam pin add https://github.com/Gbury/dolmen.git```
 
-for more information checkout [Dolmen's doc](https://github.com/Gbury/dolmen/blob/master/doc/lsp.md)
+- By downloading it from the binaries provided in [dolmen's releases](https://github.com/Gbury/dolmen/releases/latest), you'll need to:
+
+  - Either make the `dolmenls` binary available in your environment
+
+  - Or set the `smt-lsp.binary` option in the extension's settings with the path of the `dolmenls` binary
+
+
+for more information on `dolmenls` checkout [Dolmen's doc](https://github.com/Gbury/dolmen/blob/master/doc/lsp.md)
 
 # Installation
 
