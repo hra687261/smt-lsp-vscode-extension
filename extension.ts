@@ -14,7 +14,7 @@ let client: LanguageClient;
 
 function get_binary(): string {
   let bin: string =
-    workspace.getConfiguration("smt-lsp").get("binary") || "dolmenls"
+    workspace.getConfiguration("smt-lsp").get<string>("binary") || "dolmenls"
   bin =
     bin.startsWith('~') ?
       path.join(os.homedir(), bin.slice(1)) :
@@ -24,39 +24,42 @@ function get_binary(): string {
   return bin
 }
 
-export function activate(_context: ExtensionContext) {
+export function activate(context: ExtensionContext) {
 
-  let cmd = get_binary()
+  const cmd: string = get_binary()
   const run: Executable = { command: cmd }
 
   client = new LanguageClient(
-    cmd,
+    'smt-lsp',
     'SMT Language Server Protocol',
     { run, debug: run },
     { documentSelector: [{ scheme: 'file', language: 'smt' }] }
   )
 
   client.start();
-  let preludes: string[] = workspace.getConfiguration("smt-lsp").get("preludes", [])
+  let preludes: string[] =
+    workspace.getConfiguration("smt-lsp").get("preludes", [])
   if (preludes.length)
     client.sendNotification(
       DidChangeConfigurationNotification.type,
       { settings: { "preludes": preludes } }
     )
 
-  workspace.onDidChangeConfiguration(e => {
-    if (e.affectsConfiguration("smt-lsp.preludes")) {
-      client.sendNotification(
-        DidChangeConfigurationNotification.type,
-        { settings: workspace.getConfiguration("smt-lsp") }
-      )
-    }
-  })
+  // Doesn't seem to work because the server does not rerun the analysis after
+  // settings are updated. (also does not work when closing/reopening the file
+  // which is more suprising)
+  context.subscriptions.push(
+    workspace.onDidChangeConfiguration(e => {
+      if (e.affectsConfiguration("smt-lsp")) {
+        client.sendNotification(
+          DidChangeConfigurationNotification.type,
+          { settings: workspace.getConfiguration("smt-lsp") }
+        )
+      }
+    })
+  )
 }
 
 export function deactivate(): Thenable<void> | undefined {
-  if (!client) {
-    return undefined
-  }
-  return client.stop()
+  return client ? client.stop() : undefined;
 }
