@@ -2,7 +2,7 @@
   "name": "smt-lsp",
   "displayName": "SMT LSP",
   "description": "Type checking and syntax highlighting the SMT-LIB Standard",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "publisher": "hra687261",
   "license": "ISC",
   "repository": {
