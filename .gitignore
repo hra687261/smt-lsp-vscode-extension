@@ -4,3 +4,4 @@ extension.js.map
 extension.js
 *.vsix
 test
+.installed

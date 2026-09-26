@@ -35,11 +35,12 @@ From the Visual Studio marketplace: https://marketplace.visualstudio.com/items?i
 
 From the Open VSX registry: https://open-vsx.org/extension/hra687261/smt-lsp
 
-From source:
+From source (requires `npm`, [vsce](https://github.com/microsoft/vscode-vsce) and `code`):
 ```
-vsce package
-code --install-extension smt-lsp-X.X.X.vsix
+make          # builds smt-lsp-X.X.X.vsix
+make install  # builds it if needed, then installs it in VS Code
 ```
+where `X.X.X` is the `version` field of `package.json`.
 
 # Configuration
 
