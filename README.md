@@ -8,7 +8,7 @@ The syntax highlighting is a copy of [SMT.tmbundle](https://github.com/SRI-CSL/S
 
 # Dependencies
 
-The extension comes with [dolmenls](https://github.com/Gbury/dolmen) on Linux and Windows (x86-64) and on Apple Silicon Macs. On other platforms, or to use another version of `dolmenls`, you need to install it:
+The extension comes with [dolmenls](https://github.com/Gbury/dolmen) on Linux and Windows (x86-64) and on Apple Silicon Macs (Dolmen's license: [LICENSE-dolmen.txt](LICENSE-dolmen.txt)). On other platforms, or to use another version of `dolmenls`, you need to install it:
 
 - With [opam](https://opam.ocaml.org/) (Checkout [opam's website](https://opam.ocaml.org/doc/Install.html) to see how to install it):
 

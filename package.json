@@ -21,7 +21,8 @@
     "smt.tmLanguage",
     "language-configuration.json",
     "bin/",
-    "LICENSE.txt"
+    "LICENSE.txt",
+    "LICENSE-dolmen.txt"
   ],
   "contributes": {
     "configuration": {
