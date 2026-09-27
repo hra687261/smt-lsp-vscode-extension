@@ -39,7 +39,7 @@ smt-lsp-$(VERSION)-%.vsix: bin-cache/$(DOLMEN)/% $(SRC) node_modules
 
 smt-lsp-$(VERSION).vsix: $(SRC) node_modules
 	rm -rf bin
-	vsce package -o $@
+	vsce package --allow-unused-files-pattern -o $@
 
 .installed: $(HOST_VSIX)
 	code --install-extension $< --force
