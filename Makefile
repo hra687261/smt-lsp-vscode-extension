@@ -67,6 +67,6 @@ publish: publish-marketplace publish-openvsx
 
 # Creates the v$(VERSION) tag on HEAD and a GitHub release with the packages.
 github-release: $(VSIXS)
-	gh release create v$(VERSION) $(VSIXS) --target $$(git rev-parse HEAD) --generate-notes
+	gh release create v$(VERSION) $(VSIXS) --target $$(git rev-parse HEAD)
 
 release: check-release publish github-release
