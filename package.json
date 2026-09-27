@@ -16,6 +16,13 @@
     "vscode": "^1.110.0"
   },
   "main": "./extension.js",
+  "files": [
+    "extension.js",
+    "smt.tmLanguage",
+    "language-configuration.json",
+    "bin/",
+    "LICENSE.txt"
+  ],
   "contributes": {
     "configuration": {
       "title": "SMT LSP",
@@ -60,7 +67,7 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
+    "compile": "tsc --noEmit -p ./ && esbuild extension.ts --bundle --outfile=extension.js --external:vscode --format=cjs --platform=node --minify",
     "watch": "tsc -watch -p ./"
   },
   "dependencies": {
@@ -70,6 +77,7 @@
     "@types/mocha": "^10.0.10",
     "@types/node": "^25.5.0",
     "@types/vscode": "^1.110.0",
+    "esbuild": "^0.28.2",
     "eslint": "^10.1.0",
     "typescript": "^5.9.3"
   }
