@@ -29,7 +29,7 @@
         "smt-lsp.binary": {
           "type": "string",
           "default": null,
-          "description": "Path to the dolmenls (Dolmen language server) binary (likely under \"~/.opam/{opam-switch}/bin/dolmenls\" or equivalent)"
+          "description": "Path to the dolmenls (Dolmen language server) binary (e.g. \"~/.opam/{opam-switch}/bin/dolmenls\"). If not set, the dolmenls binary bundled with the extension (for Linux and Windows on x86-64 and for Apple Silicon Macs) is used."
         }
       }
     },

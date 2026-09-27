@@ -3,3 +3,5 @@ tsconfig.json
 extension.js.map
 Makefile
 .installed
+bin-cache/**
+*.vsix
