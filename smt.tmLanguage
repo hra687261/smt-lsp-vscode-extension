@@ -85,7 +85,7 @@
 			<string>(?x)                                                  (?# multiline mode )
 			         (\b(?i:(define-fun|define-fun-rec|define-sort))\b)
 					 (\s+)
-					 ((\w|\.|\||_|@|%|\-|\!|\?)*)</string>
+					 (\|[^|]*\||(\w|\.|_|@|%|\-|\!|\?)*)</string>
 			<key>name</key>
 			<string>meta.function.define.smt</string>
 		</dict>
@@ -109,7 +109,7 @@
                        declare-fun
                        declare-sort</string>
 			<key>match</key>
-			<string>(\b(?i:(declare-sort|declare-fun|declare-const|declare-datatype))\b)(\s+)((\w|\.|\||_|@|%|\-|\!|\?)*)</string>
+			<string>(\b(?i:(declare-sort|declare-fun|declare-const|declare-datatype))\b)(\s+)(\|[^|]*\||(\w|\.|_|@|%|\-|\!|\?)*)</string>
 			<key>name</key>
 			<string>meta.function.declare.smt</string>
 		</dict>
