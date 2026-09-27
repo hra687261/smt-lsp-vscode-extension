@@ -47,5 +47,4 @@ The extension has the following settings:
 - "smt-lsp.binary": a path to the `dolmenls` binary. By default, the extension uses the `dolmenls` it comes with.
 
 # TODO
-- Syntax highlighting for the latest version of the SMT-LIB standard. (only version 2.5 is supported for now)
 - Syntax highlighting for the other languages supported by [Dolmen](https://github.com/Gbury/dolmen). (some day)

@@ -4,13 +4,9 @@
 <dict>
 	<key>comment</key>
 	<string>
-	 This grammar is written by non-textmate users; mainly in order to push the
-	 grammar to the linguist repository. This is to enable highlighting of SMT code
-	 on GitHub.
-
-	 Any improvements are welcome. We are confirmed novices.
-		iam@csl.sri.com
-		bruno@csl.sri.com
+  SMT-LIB 2.6 grammar of the SMT-LIB VS Code extension (smt-lsp), covering the
+  language supported by Dolmen v0.10. Based on SMT.tmbundle by SRI-CSL
+  (https://github.com/SRI-CSL/SMT.tmbundle, public domain).
 	</string>
 	<key>fileTypes</key>
 	<array>
@@ -109,10 +105,11 @@
 			</dict>
 			<key>comment</key>
 			<string>declare-const
+                       declare-datatype
                        declare-fun
                        declare-sort</string>
 			<key>match</key>
-			<string>(\b(?i:(declare-sort|declare-fun|declare-const))\b)(\s+)((\w|\.|\||_|@|%|\-|\!|\?)*)</string>
+			<string>(\b(?i:(declare-sort|declare-fun|declare-const|declare-datatype))\b)(\s+)((\w|\.|\||_|@|%|\-|\!|\?)*)</string>
 			<key>name</key>
 			<string>meta.function.declare.smt</string>
 		</dict>
@@ -138,9 +135,10 @@
                      exists
                      forall
                      let
+                     match
                      par</string>
 			<key>match</key>
-			<string>\b(?i:as|let|exists|forall|par|_)\b</string>
+			<string>\b(?i:as|let|exists|forall|match|par|_)\b</string>
 			<key>name</key>
 			<string>keyword.control.smt</string>
 		</dict>
@@ -199,6 +197,8 @@
 			<string>assert
                      check-sat
                      check-sat-assuming
+                     declare-datatypes
+                     define-funs-rec
                      echo
                      exit
                      get-assertions
@@ -218,10 +218,10 @@
                      set-logic
                      set-option</string>
 			<key>match</key>
-			<string>(?x)\b(?i:assert|check-sat|check-sat-assuming|echo|exit
+			<string>(?x)\b(?i:assert|check-sat-assuming|check-sat|declare-datatypes|define-funs-rec|echo|exit
                      |get-assertions|get-assignment|get-info|get-model|get-option
                      |get-proof|get-unsat-assumptions|get-unsat-core|get-value
-					 |pop|push|reset|reset-assertions|set-info|set-logic|set-option)\b</string>
+					 |pop|push|reset-assertions|reset|set-info|set-logic|set-option)\b</string>
 			<key>name</key>
 			<string>keyword.control.commands.smt</string>
 		</dict>
@@ -279,7 +279,9 @@
 			    -zero
 </string>
 			<key>match</key>
-			<string>\b(RoundingMode|FloatingPoint|Nan|div|mod|abs)\b</string>
+			<string>(?x)\b(RoundingMode|FloatingPoint|Float16|Float32|Float64|Float128|NaN|fp\.\w+|fp|to_fp|to_fp_unsigned
+                  |roundNearestTiesToEven|roundNearestTiesToAway|roundTowardPositive|roundTowardNegative|roundTowardZero
+                  |RNE|RNA|RTP|RTN|RTZ)\b</string>
 			<key>name</key>
 			<string>keyword.operator.floatingpoint.smt</string>
 		</dict>
@@ -294,6 +296,12 @@
 			<string>\b(divisible|to_real|to_int|is_int)\b</string>
 			<key>name</key>
 			<string>keyword.operator.reals_ints.smt</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(String\b|RegLan\b|(str|re)\.[^\s()]+)</string>
+			<key>name</key>
+			<string>keyword.operator.strings.smt</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -390,7 +398,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>"</string>
+			<string>"(?!")</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -405,7 +413,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\\.</string>
+					<string>""</string>
 					<key>name</key>
 					<string>constant.character.escape.smt</string>
 				</dict>
